@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>HW5</title>
+</head>
+<body>
+    <form class="person_form" action="">
+        <ul type="none" class="form_list">
+            <li class="list_row">
+                <label class="form_label label_name" for="">Name:</label>
+                <input class="form_field field_name" type="text" id="name" value="">
+            </li>
+            <li class="list_row">
+                <label class="form_label label_email" for="email">Email:</label>
+                <input class="form_field field_email" type="email" id="email" value="">
+            </li>
+            <li class="list_row">
+                <label class="form_label label_age" for="age">Age:</label>
+                <input class="form_field field_age" type="number" id="age" value="">
+            </li>
+            <li class="list_row">
+                <label class="form_label label_comment" for="text_area">Comment:</label>
+                <textarea class="form_field field_comment" name="" id="text_area" cols="45" rows="10" value=""></textarea>
+            </li>
+            <li class="list_row">
+                <label class="form_label label_country" for="country">Country:</label>
+                <select class="form_field field_country" name="" id="country">
+                    <option value="opt_other">Other</option>
+                    <option value="opt_ua">Ukraine</option>
+                    <option value="opt_ru">Russia</option>
+                    <option value="opt_bl">Belarus</option>
+                    <option value="opt_pl">Poland</option>
+                </select>
+            </li>
+            <li class="list_row">
+                <button id="button" class="submit_button" type="submit">Send</button>
+            </li>
+        </ul>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.person_form {
+    border: black;
+    border-style: dotted;
+    width: 450px;
+    margin: 0 auto;
+    padding-right: 40px;
+}
+
+.form_label {
+    display: block;
+    width: 70px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form_field {
+    display: block;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.field_comment {
+    resize: none;
+    border-radius: 5px;
+}
+
+.list_row:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.submit_button {
+    font-family: 'Courier New', Courier, monospace;
+    display: block;
+    margin: 0 auto;
+    height: 30px;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+    background-color: tomato;
+    font-weight: bold;
+    border-radius: 5px;
+}
