@@ -3,22 +3,24 @@ window.onload = function() {
 
     const setListeners = () => {
         $('#search').on('keyup', e => {
+            $("#selectSearch").val(""); //======================================= my changes
             let value = e.target.value;
             value = value.toLowerCase();
             let filteredCountries = window.countries.filter(country => country.name.toLowerCase().indexOf(value) > -1
                 || country.capital.toLowerCase().indexOf(value) > -1
                 || country.region.toLowerCase().indexOf(value) > -1);
-            console.log(filteredCountries);
             renderCountries(filteredCountries);
         });
 
-        //=======================================
+        //======================================= my changes
         $("#selectSearch").change(e => {
+            $('#search').val("");
             let selectedCountry = $("#selectSearch option:selected").text();
             let findCountry = window.countries.filter(country => country.name === selectedCountry);
-            console.log(findCountry);
             renderCountries(findCountry);
+            
         });
+        //=======================================
 
         $('table thead th.bg-warning').on('click touch', e => {
             let field = e.currentTarget.innerText;
@@ -42,9 +44,19 @@ window.onload = function() {
             $(e.currentTarget).parent('tr').addClass('bg-dark text-white');
         })
     }
+
+    //======================================= my changes
+    const updateOption = countries => {
+        let selectStr = '<option value="">Not selected</option>';
+        for (let country of countries) {
+            selectStr += `<option value="${country.name}">${country.name}</option>`;
+        }
+        $('.countries-select').html(selectStr);
+    };
+    //=======================================
+
     const renderCountries = countries => {
         let htmlStr = '';
-        let selectStr = '<option value="">Not selected</option>';
         for(let country of countries) {
             htmlStr += `<tr>
             <td>${country.name}</td>
@@ -57,13 +69,11 @@ window.onload = function() {
             <td><img src="${country.flag}"  height="30px"/></td>
         </tr>`;
 
-            selectStr += `<option value="${country.name}">${country.name}</option>`;
         }
         if(!countries.length) {
             htmlStr = '<tr><td colspan="8" class="text-center">Не найдено</td></tr>'
         }
         $('table > tbody').html(htmlStr);
-        $('.countries-select').html(selectStr);
     };
 
     const getData = () => {
@@ -81,6 +91,7 @@ window.onload = function() {
                 });
                 window.countries = countries;
                 renderCountries(countries);
+                updateOption(countries); //======================================= my changes
                 setListeners();
         });
     }
